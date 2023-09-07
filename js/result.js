@@ -74,7 +74,7 @@ fetch(api_url)
         rise[3].style.transition = `height ${select_04 / bs}s`;
     
         // カウントUP用の変数
-        const anim_sec = 50; 
+        const anim_sec = 60; 
         // カウントUPアニメーション
         const countup01 = setInterval(()=>{
         count1++;

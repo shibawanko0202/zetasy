@@ -852,10 +852,10 @@
     z-index: 99;
     font-size: 50px;
     color: var(--zetasy-heart);
-    animation: love 1.5s infinite;
+    animation: loading-love 1s infinite;
   }
 
-  @keyframes love {
+  @keyframes loading-love {
     0% {
       transform: scale(1);
       opacity: .3;
@@ -874,7 +874,7 @@
     }
     100% {
       transform: scale(1);
-      opacity: .3;
+      opacity: 0.3;
     }
   }
 
@@ -925,7 +925,7 @@
     border-radius: 8px;
     transform-origin:center;
     transform:scale(1);
-    animation: btnEffect 2s 4s ease-in-out infinite;
+    animation: btnEffect 1.6s 4s ease-in-out infinite;
   }
   @keyframes btnEffect{
     0% {
