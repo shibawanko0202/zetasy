@@ -1,5 +1,6 @@
 "use strict"
 
+const loading = document.getElementById("result-loading");
 const reload_btn = document.getElementById("reload-btn");
 
 // 選択肢の中身を定数定義
@@ -52,7 +53,7 @@ fetch(api_url)
 	let count3 = 0;
 	let count4 = 0;
 
-    //   loading.classList.add("loaded");
+    loading.classList.add("loaded");
     setTimeout(() => {
         for(let i = 0;i < bars.length;i++){
         bars[i].classList.add("rise");
@@ -77,35 +78,35 @@ fetch(api_url)
         // カウントUPアニメーション
         const countup01 = setInterval(()=>{
         count1++;
-        percents[0].textContent = `${count1}%`;
+        percents[0].innerHTML = `${count1}<span>%</span>`;
         if(count1 == select_01){
             clearInterval(countup01);
         };
         },anim_sec);
         const countup02 = setInterval(()=>{
         count2++;
-        percents[1].textContent = `${count2}%`;
+        percents[1].innerHTML = `${count2}<span>%</span>`;
         if(count2 == select_02){
             clearInterval(countup02);
         };
         },anim_sec);
         const countup03 = setInterval(()=>{
         count3++;
-        percents[2].textContent = `${count3}%`;
+        percents[2].innerHTML = `${count3}<span>%</span>`;
         if(count3 == select_03){
             clearInterval(countup03);
         };
         },anim_sec);
         const countup04 = setInterval(()=>{
         count4++;
-        percents[3].textContent = `${count4}%`;
+        percents[3].innerHTML = `${count4}<span>%</span>`;
         if(count4 == select_04){
             clearInterval(countup04);
         };
         },anim_sec);
 
         reload_btn.classList.add("apear");
-    }, 1000);
+    }, 1200);
 });
 
 // 更新ボタン

@@ -118,19 +118,6 @@
 // ↑↑ 矢印で遷移 ↑↑ ------------------
 
 
-// ↓↓ 勝也の場合のみdtの変更 ↓↓ ------------------
-
-  // const work_dt = document.getElementById("work_dt");
-  // const wish_dt = document.getElementById("wish_dt");
-
-  // if(person_current == (persons.length - 1)){
-  //   work_dt.innerHTML = "年収";
-  //   wish_dt.innerHTML = "資産";
-  // };
-
-// ↑↑ 勝也の場合のみdtの変更 ↑↑ ------------------
-
-
 // ↓↓ 状態に応じて表示変更 ↓↓ ------------------
 
   if(persons[getParam("p")].login == last_login[0]){
@@ -145,35 +132,61 @@
 
 // ↓↓ form用ラジオボタン自動選択 ↓↓ ------------------
 
-const selects = document.getElementsByClassName("list-check");
-selects[getParam("p")].checked = true;
+  const selects = document.getElementsByClassName("list-check");
+  selects[getParam("p")].checked = true;
 
-const check_final = document.getElementById("check-final");
-check_final.innerHTML = `${persons[getParam("p")].name}さんを<br>選びますか？`;
+  const check_final = document.getElementById("check-final");
+  check_final.innerHTML = `${persons[getParam("p")].name}さんを<br>選びますか？`;
 
 // ↑↑ form用ラジオボタン自動選択 ↑↑ ------------------
 
 
 // ↓↓ 最終確認画面 ↓↓ ---------------------- 
 
-const check = document.getElementById("check-back");
-const rocket = document.getElementById("rocket");
-const check_no = document.getElementById("check-no");
+  const check = document.getElementById("check-back");
+  const check_no = document.getElementById("check-no");
 
-function taboo(e){
-  e.preventDefault();
-};
+  function taboo(e){
+    e.preventDefault();
+  };
 
-rocket.addEventListener('click',()=>{
-  check.classList.remove("hidden");
-  document.addEventListener('mousewheel', taboo, { passive: false });
-  document.addEventListener('touchmove', taboo, { passive: false });
-});
+  favorite.addEventListener('click',()=>{
+    check.classList.remove("hidden");
+    document.addEventListener('mousewheel', taboo, { passive: false });
+    document.addEventListener('touchmove', taboo, { passive: false });
+  });
+  love.addEventListener('click',()=>{
+    check.classList.remove("hidden");
+    document.addEventListener('mousewheel', taboo, { passive: false });
+    document.addEventListener('touchmove', taboo, { passive: false });
+  });
 
-check_no.addEventListener('click',()=>{
-  check.classList.add("hidden");
-  document.removeEventListener('mousewheel', taboo, { passive: false });
-  document.removeEventListener('touchmove', taboo, { passive: false });
-});
+  check_no.addEventListener('click',()=>{
+    check.classList.add("hidden");
+    document.removeEventListener('mousewheel', taboo, { passive: false });
+    document.removeEventListener('touchmove', taboo, { passive: false });
+    heartfull();
+  });
 
 // ↑↑ 最終確認画面 ↑↑ ---------------------- 
+
+
+// 多重送信防止
+
+  const check_text = document.getElementById("check-text");
+  check_text.onclick = function(event){
+    check_text.classList.add("ban");
+  };
+
+// 多重送信防止
+
+
+// ブラウザバックでも発火するpageshowをつかう(iOS対策)
+window.onpageshow = function(event) {
+  // ブラウザバックとかでキャッシュが残る恐れがあるので一旦リセット
+  check_text.classList.remove("ban");
+  check.classList.add("hidden");
+  if (event.persisted) {
+    window.location.reload();
+  };
+};

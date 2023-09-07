@@ -258,6 +258,7 @@
     cursor: pointer;
   }
   .header_menu li .material-symbols-outlined{
+    /* font-family: 'Material Icons Outlined'; */
     font-size: 42px;
   }
   .header_menu .topiccount{
@@ -400,24 +401,27 @@
     box-shadow: 0 -3px 3px #0000002d;
     color: #fff;
     text-align: center;
-    line-height: 32px;
+    padding: 16px;
   }
-  .material-symbols-outlined.footer-rocket{
+  footer dt{
+    font-weight: normal;
+    padding-bottom: 8px;
+  }
+  footer dd{
+    line-height: 24px;
+  }
+  .material-symbols-outlined.footer-heart{
     position: relative;
     top: 4px;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: var(--zetasy-pink);
     display: inline-flex;
     justify-content: center;
     align-items: center;
     font-size: 19px;
-    margin: 0 2px;
+    margin: 0px;
   }
   .fake-footer{
     width: 100px;
-    height: 80px;
+    height: 110px;
   }
 /* footer */
 
@@ -441,7 +445,7 @@
     max-width: 500px;
     height: 100%;
     transform: translateX(-50%);
-    background-color: #999999aa;
+    background-color: #99999965;
     z-index: 999;
     opacity: 1;
     transition: all .3s;
@@ -463,6 +467,9 @@
     background-color: #fff;
     color: #333;
     text-align: center;
+  }
+  .check-text.ban{
+    pointer-events: none;
   }
   .check dt{
     color: var(--zetasy-pink);
@@ -494,21 +501,6 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    
-    /* box-shadow:inset 0px 1px 3px 0px rgb(235, 235, 235); */
-    /* background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-    background-color:#768d87;
-    border-radius:5px;
-    border:1px solid #566963;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:15px;
-    font-weight:bold;
-    padding:11px 23px;
-    text-decoration:none;
-    text-shadow:0px -1px 0px #2b665e; */
   }
 
   .prof_body{
@@ -546,33 +538,6 @@
     background-color: #999;
     opacity: .8;
   }
-
-  .rocket_container{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    padding: 0 16px;
-  }
-  .prof_rocket{
-    position: fixed;
-    bottom: 16px;
-    /* right: 30px; */
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--zetasy-pink);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: .8;
-    cursor: pointer;
-  }
-  .prof_rocket .material-symbols-outlined{
-    font-size: 30px;
-    color: #fff;
-  }
-
-
   .prof_top{
     display: flex;
     flex-direction: column;
@@ -829,40 +794,143 @@
 
 /* 集計結果 */
 
-  @keyframes blinkEffect {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+  /* ローディング画面 */
+  .result-loading{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 1.2s;
+    pointer-events: all;
   }
+  .result-loading.loaded{
+    opacity: 0;
+    pointer-events: none;
+  }
+  .loading-h1{
+    display: flex;
+    font-size: 34px;
+    margin-top: 48px;
+    font-family: 'senobi';
+  }
+  .loading-h1 span{
+    position: relative;
+    left: 0;
+    right: 0;
+    top:0;
+  }
+  .loading-h1 span:nth-child(1){
+    animation: bound-anim 1.5s infinite;
+  }
+  .loading-h1 span:nth-child(2){
+    animation: bound-anim 1.5s .3s infinite;
+  }
+  .loading-h1 span:nth-child(3){
+    animation: bound-anim 1.5s .6s infinite;
+  }
+  @keyframes bound-anim {
+    0%,100% {top: 0;transform: scale(1);}
+    30% {top: -25%;}
+    50% {transform: scale(1);}
+    90% {top: 0;transform: scale(1.2,0.8);}
+  }
+
+  .material-symbols-outlined.loading-favorite{
+    z-index: 99;
+    font-size: 50px;
+    color: var(--zetasy-heart);
+    animation: love 1.5s infinite;
+  }
+
+  @keyframes love {
+    0% {
+      transform: scale(1);
+      opacity: .3;
+    }
+    40% {
+      transform: scale(2);
+      opacity: .8;
+    }
+    60% {
+      transform: scale(1);
+      opacity: .7;
+    }
+    80% {
+      transform: scale(1.4);
+      opacity: .5;
+    }
+    100% {
+      transform: scale(1);
+      opacity: .3;
+    }
+  }
+
+
+  /* グラフ画面 */
 
   .result-body{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     color: var(--zetasy-brown);
     /* border: 3px solid var(--zetasy-pink); */
   }
-  .result-body h1{
+  .result-h1{
     font-size: 32px;
     margin: 16px 0 0px;
+    font-family: 'senobi';
+    background:linear-gradient(transparent 80%, #ff9bc5 80%);/*linear-gradient(transparent ◯◯%, 使用する色 ◯◯%)*/
+  }
+  .result-h1 span{
+    font-size: 24px;
+    font-family: 'Kiwi Maru', serif;
+    font-weight: bold;
   }
   .reload-btn{
-    width: 200px;
-    height: 40px;
-    background-color: var(--zetasy-pink);
-    color: #fff;
+    display:inline-block;
+    z-index:1;
+    position:relative;
+    font-size:inherit;
+    font-family:inherit;
+    color:#fff;
+    padding:.5em 1em;
+    outline:0;
+    border:none;
     border-radius: 8px;
-    /* box-shadow: 3px 3px 3px #255830; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 16px;
-    opacity: 0;
+    background-color:#fd72ac;
   }
-  .reload-btn.apear{
-    animation: blinkEffect 1.2s 4s step-end infinite;
+  .reload-btn.apear::before{
+      content:'';
+    z-index:-1;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    border:4px solid #fd72ac;
+    border-radius: 8px;
+    transform-origin:center;
+    transform:scale(1);
+    animation: btnEffect 2s 4s ease-in-out infinite;
   }
+  @keyframes btnEffect{
+    0% {
+      transform:scale(1, 1);
+      opacity:1; 
+    }
+    100% {
+      transform:scale(1.25, 1.9);
+      opacity:0; 
+    }
+  }
+      
   .graph{
     display: flex;
     justify-content: center;
@@ -875,10 +943,13 @@
     flex-direction: column-reverse;
     align-items: center;
     padding: 0 16px;
+    font-size: 18px;
+    /* font-weight: bold; */
   }
   .name{
     padding-bottom: 6px;
     writing-mode: vertical-rl;
+    font-weight: normal;
   }
   .bar{
     width: 40px;
@@ -895,6 +966,9 @@
   }
   .graph li:nth-of-type(4) .bar{
     background-color: rgb(223, 183, 156);
+  }
+  .percent > span{
+    font-size: 14px;
   }
 
 /* 集計結果 */
