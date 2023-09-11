@@ -922,7 +922,7 @@
     outline:0;
     border:none;
     border-radius: 8px;
-    background-color: #afafaf;
+    background-color: #cecece;
     transition: background-color 1s 4s;
   }
   .reload-btn.apear{
@@ -936,7 +936,7 @@
     bottom:0;
     left:0;
     right:0;
-    border:4px solid #afafaf;
+    border:4px solid #cecece;
     border-radius: 8px;
     transform-origin:center;
     transform:scale(1);
