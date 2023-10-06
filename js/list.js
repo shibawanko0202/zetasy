@@ -52,7 +52,7 @@ let persons = [
   work : work_selects[0],
   wish : wish_selects[1]
   },
-  {name : "谷元",
+  {name : "谷本",
   age : "19",
   place : "岐阜県",
   oneword : "",
