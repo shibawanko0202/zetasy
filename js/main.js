@@ -1,155 +1,166 @@
 "use strict"
 
-// ↓↓ ハンバーガーメニュー ↓↓ ---------------------- 
 
-  // const hamburger = document.getElementById("hamburger");
-  // const hamburger_back = document.getElementById("hamburger_back");
-  // let hamburger_current = false;
+// コマンド設定
+const katsuya = document.getElementById("katsuya");
+const com_lists = document.getElementsByClassName(" command-list");
+let current_command = 0;
 
-  // hamburger.addEventListener('click',()=>{
+const check_box = document.getElementById("check");
+const check_text = document.getElementById("check-text");
+const check_lists = document.getElementsByClassName(" check-list");
+let current_check = 0;
+let check = false;
 
-  //   if(!hamburger_current){
-  //     hamburger_current = true;
-  //     hamburger.classList.add("apear");
-  //     hamburger_back.classList.add("apear");
-  //     document.addEventListener('mousewheel', taboo, { passive: false });
-  //     document.addEventListener('touchmove', taboo, { passive: false });
-  //   }else{
-  //     hamburger_current = false;
-  //     hamburger.classList.remove("apear");
-  //     hamburger_back.classList.remove("apear");
-  //     document.removeEventListener('mousewheel', taboo, { passive: false });
-  //     document.removeEventListener('touchmove', taboo, { passive: false });
-  //   };
-
-  // });
-
-// ↓↓ ハンバーガーメニュー ↓↓ ---------------------- 
+const flashscreen = document.getElementById("flashscreen");
+const blackout = document.getElementById("blackout");
+const main = document.getElementById("main");
+const bgi = document.getElementById("bgi");
+const frames = document.getElementsByClassName("frame");
+const textbox = document.getElementById("textbox");
+const selects = document.getElementsByName("entry.1604613071");
+const check_final = document.getElementById("check-final");
+let control = true;
 
 
-// ↓↓ 訪問者カウンター ↓↓ ---------------------- 
+// テキストの内容
+const texts = document.getElementsByClassName("text");
+let text_interval;
+const text00 = ["かつやが　あらわれた！",
+"かつやは　『けっこんしよう』　と言っている…"];
 
-  // const visit = document.getElementById("visit");
-  // const v_counter = document.getElementById("v_counter");
+let textcounter = false;
 
-  // let visit_count = 0;
+// コントロールON/OFF
 
-  // visit.addEventListener('click',()=>{
+  function control_on(){
+    control = true;
+    com_lists[current_command].classList.add("blink");
+  };
 
-  //   visit_count++;
-    
-  //   if(visit_count == 1){
-  //     v_counter.classList.add("apear");
-  //   }else if(visit_count == 10){
-  //     visit_count = 0;
-  //     v_counter.classList.remove("apear");
-  //     v_counter.innerHTML = 1;
-  //   }else{
-  //     v_counter.innerHTML = visit_count;
-  //   };
-    
-  // });
+  function control_off(){
+    control = false;
+  };
 
-// ↑↑ 訪問者カウンター ↑↑ ---------------------- 
+// コントロールON/OFF
 
 
-// ↓↓ メッセージカウンター ↓↓ ---------------------- 
+// テキスト表示アニメーション関数
 
-  // const messe = document.getElementById("messe");
-  // const m_counter = document.getElementById("m_counter");
+  function word(t){
 
-  // let messe_count = 0;
-
-  // messe.addEventListener('click',()=>{
-
-  //   messe_count++;
-    
-  //   if(messe_count == 1){
-  //     m_counter.classList.add("apear");
-  //   }else if(messe_count == 10){
-  //     messe_count = 0;
-  //     m_counter.classList.remove("apear");
-  //     m_counter.innerHTML = 1;
-  //   }else{
-  //     m_counter.innerHTML = messe_count;
-  //   };
-    
-  // });
-
-// ↑↑ メッセージカウンター ↑↑ ---------------------- 
-
-
-// ↓↓ 有料コンテンツ用アナウンス ↓↓ ---------------------- 
-
-// const attention = document.getElementById("attention");
-// const paid_contents = document.getElementsByClassName("paid_content");
-
-// function taboo(e){
-//   e.preventDefault();
-// };
-
-
-// for(let i = 0;i < paid_contents.length;i++){
-//   paid_contents[i].addEventListener('click',()=>{
-//     attention.classList.remove("hidden");
-//     document.addEventListener('mousewheel', taboo, { passive: false });
-//     document.addEventListener('touchmove', taboo, { passive: false });
-//   });
-// };
-
-// attention.addEventListener('click',()=>{
-//   attention.classList.add("hidden");
-//   document.removeEventListener('mousewheel', taboo, { passive: false });
-//   document.removeEventListener('touchmove', taboo, { passive: false });
-// });
-
-// ↑↑ 有料コンテンツ用アナウンス ↑↑ ---------------------- 
-
-
-// ↓↓ サムネイル複製 ↓↓ ---------------------- 
-
-  const personlist = document.getElementById("personlist");
-
-  function thumb_clone(){
-    
-    for(let i = 0;i < (persons.length - 1);i++){
-      let clone = personlist.firstElementChild.cloneNode(true);
-      personlist.appendChild(clone);
+    for(let i = 0;i < texts.length;i++){
+      texts[i].innerHTML = null;
     };
+
+    let len_total = 0;
+
+    for(let i = 0;i < t.length;i++){
+      let n = 0;
+      let len = t[i].length;
+      if(i >= 1){
+        len_total += len;
+      };
+
+      setTimeout(()=>{
+        text_interval = setInterval(()=>{
+          texts[i].innerHTML = t[i].slice(0,n);
+          //HTMLのtextに、変数sの０文字目からn文字までのテキストを表示する
+          if(n < len){
+            //文字を増やす処理の回数が入力された文字数を超えるまで繰り返す
+            n++;
+          } else {
+            //文字を増やす処理の回数が入力された文字数を超えた時の処理
+            clearInterval(text_interval);
+          };
+        },40);
+      },(len_total * 60));
+    };
+  };
+
+// テキスト表示アニメーション関数
+
+
+// バトル開始関数
+
+  function battle(){
+    
+    // com_lists[current_command].classList.remove("blink");
+
+    flashscreen.classList.add("in");
+
+    // 背景導入
+    bgi.classList.add("apear");
+    katsuya.classList.add("in");
+    setTimeout(()=>{
+      textbox.classList.add("apear");
+      bgi.classList.add("apear2");
+    },2000);
+     
+    // カツヤ登場
+    setTimeout(()=>{
+      word(text00);
+    },4000);
+    
+    for(let i = 0;i < frames.length;i++){
+      setTimeout(()=>{
+        frames[i].classList.add("apear");
+      },(i * 80));
+    };
+    setTimeout(()=>{
+      selects[0].checked = true;
+    },8000);
 
   };
 
-// ↑↑ サムネイル複製 ↑↑ ---------------------- 
+// バトル開始関数
 
 
-// ↓↓ サムネイル表示 ↓↓ ---------------------- 
 
-  const thumbnail_img = document.getElementsByClassName("thumbnail_img");
-  const thumbnail_info = document.getElementsByClassName("thumbnail_info");
-  const thumbnail_oneword = document.getElementsByClassName("thumbnail_oneword");
-  const prof_link = document.getElementsByClassName("prof_link");
-
-  function thumb_apear(){
-
-    for(let i = 0;i < thumbnail_img.length;i++){
-      thumbnail_img[i].style.backgroundImage = `url(${persons[i].img})`;
-      // thumbnail_info[i].innerHTML = `${persons[i].age}歳/${persons[i].place}/${persons[i].name}`;
-      thumbnail_info[i].innerHTML = `${persons[i].name}/${persons[i].place}/${persons[i].age}歳`;
-      thumbnail_oneword[i].innerHTML = persons[i].oneword;
-      prof_link[i].href = `profile.html?p=${i}`;
+// 最終チェックの表示変更
+for(let i = 0; i < selects.length; i++){
+  selects[i].addEventListener('change',() => {
+    if(selects[i].checked){
+      check_final.innerHTML = `「${selects[i].value}」で<br>よろしいですか？`;
+      if(check_final.textContent.length > 16){
+        check_final.classList.add("small");
+      }else{
+        check_final.classList.remove("small");
+      };
     };
-
-  };
-  
-  // ↑↑ サムネイル表示 ↑↑ ---------------------- 
-
-  new Promise((resolve)=>{
-
-    thumb_clone();
-    resolve();
-
-  }).then(()=>{
-
-    thumb_apear()
-    
   });
+};
+
+
+
+// ブラウザバックでも発火するpageshowをつかう(iOS対策)
+window.onpageshow = function(event) {
+  // ブラウザバックとかでキャッシュが残る恐れがあるので一旦リセット
+  flashscreen.classList.remove("in");
+  bgi.classList.remove("apear");
+  katsuya.classList.remove("in");
+  textbox.classList.remove("apear");
+  bgi.classList.remove("apear2");
+  check_text.classList.remove("ban");
+  for(let i = 0;i < texts.length;i++){
+    texts[i].innerHTML = null;
+  };
+  for(let i = 0;i < frames.length;i++){
+    frames[i].classList.remove("apear");
+  };
+  for(let i = 0;i < selects.length;i++){
+    selects[i].checked = false;
+  };
+
+  if (event.persisted) {
+    window.location.reload();
+  };
+
+  battle();
+};
+
+
+// 多重送信防止
+check_text.onclick = function(event){
+  check_text.classList.add("ban");
+};
