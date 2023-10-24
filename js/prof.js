@@ -85,11 +85,11 @@
   prof_name.innerHTML = persons[getParam("p")].name;
   introduction.innerHTML = persons[getParam("p")].introduction;
   height.innerHTML = `${persons[getParam("p")].height}cm`;
-  figure.innerHTML = persons[getParam("p")].figure;
-  alcohol.innerHTML = persons[getParam("p")].alcohol;
-  smoking.innerHTML = persons[getParam("p")].smoking;
-  work.innerHTML = persons[getParam("p")].work;
-  wish.innerHTML = persons[getParam("p")].wish;
+  hobby.innerHTML = persons[getParam("p")].hobby;
+  favorite_type.innerHTML = persons[getParam("p")].favorite_type;
+  favorite_sweets.innerHTML = persons[getParam("p")].favorite_sweets;
+  favorite_animal.innerHTML = persons[getParam("p")].favorite_animal;
+  favorite_chara.innerHTML = persons[getParam("p")].favorite_chara;
   
 
 // ↑↑ プロフ入力 ↑↑ ------------------
