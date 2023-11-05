@@ -29,14 +29,15 @@
   html{
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    /* max-width: 600px; */
+    background-color: #000000;
     cursor: default;
     user-select: none;
   }
   body{
     background-color: #fff;
     width: 100%;
-    /* max-width: 600px; */
+    max-width: 600px;
     min-height: 100%;
     margin: 0 auto;
     font-family: 'kiwiMaru-zetasy', serif;
@@ -56,7 +57,7 @@
     top: 0;
     left: 50%;
     width: 100%;
-    /* max-width: 500px; */
+    /* max-width: 600px; */
     height: 100%;
     transform: translateX(-50%);
     background-color: #999999aa;
@@ -105,7 +106,7 @@
     width: 0;
     background-color: #fff;
     width: 100%;
-    /* max-width: 600px; */
+    max-width: 600px;
     z-index: 99;
     box-shadow: 0 3px 3px #0000002d;
   }
@@ -414,7 +415,7 @@
     bottom: 0;
     z-index: 10;
     width: 100%;
-    /* max-width: 500px; */
+    max-width: 600px;
     /* height: 40px; */
     padding: 8px 16px;
     background-color: #00000085;
@@ -452,6 +453,60 @@
 
 /* それぞれのプロフ画面 */
 
+  /* 送信のラグ時のローディング画面 */
+  .submit-loading{
+    position: fixed;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    user-select: none;
+    pointer-events: none;
+    background-color: #00000077;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .submit-loading.apear{
+    opacity: 1;
+  }
+  .dott-container{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+  }
+  .dott-container > div{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin: 16px;
+    background-color: var(--zetasy-pink);
+  }
+  .submit-loading.apear .dott-container > div:nth-child(1){
+    animation: submit-animation .9s alternate infinite ease-in-out;
+  }
+  .submit-loading.apear .dott-container > div:nth-child(2){
+    animation: submit-animation .9s .3s alternate infinite ease-in-out;
+  }
+  .submit-loading.apear .dott-container > div:nth-child(3){
+    animation: submit-animation .9s .6s alternate infinite ease-in-out;
+  }
+  @keyframes submit-animation {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }    
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }   
+  }
+    
+
   .list-check{
     display: none;
   }
@@ -464,11 +519,11 @@
     top: 0;
     left: 50%;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     height: 100%;
     transform: translateX(-50%);
     background-color: #99999965;
-    z-index: 999;
+    z-index: 99;
     opacity: 1;
     transition: all .3s .6s;
   }
@@ -529,7 +584,7 @@
   .prof_body{
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
 
     /* font-size: 24px; */
   }
@@ -537,7 +592,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     height: 50px;
     display: flex;
     justify-content: space-between;
