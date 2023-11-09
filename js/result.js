@@ -77,32 +77,40 @@ fetch(api_url)
         const anim_sec = 60; 
         // カウントUPアニメーション
         const countup01 = setInterval(()=>{
-        count1++;
-        percents[0].innerHTML = `${count1}<span>%</span>`;
-        if(count1 == select_01){
-            clearInterval(countup01);
-        };
+            if(select_01 > 0){
+                count1++;
+            };
+            percents[0].innerHTML = `${count1}<span>%</span>`;
+            if(count1 == select_01){
+                clearInterval(countup01);
+            };
         },anim_sec);
         const countup02 = setInterval(()=>{
-        count2++;
-        percents[1].innerHTML = `${count2}<span>%</span>`;
-        if(count2 == select_02){
-            clearInterval(countup02);
-        };
+            if(select_02 > 0){
+                count2++;
+            };
+            percents[1].innerHTML = `${count2}<span>%</span>`;
+            if(count2 == select_02){
+                clearInterval(countup02);
+            };
         },anim_sec);
         const countup03 = setInterval(()=>{
-        count3++;
-        percents[2].innerHTML = `${count3}<span>%</span>`;
-        if(count3 == select_03){
-            clearInterval(countup03);
-        };
+            if(select_03 > 0){
+                count3++;
+            };
+            percents[2].innerHTML = `${count3}<span>%</span>`;
+            if(count3 == select_03){
+                clearInterval(countup03);
+            };
         },anim_sec);
         const countup04 = setInterval(()=>{
-        count4++;
-        percents[3].innerHTML = `${count4}<span>%</span>`;
-        if(count4 == select_04){
-            clearInterval(countup04);
-        };
+            if(select_04 > 0){
+                count4++;
+            };
+            percents[3].innerHTML = `${count4}<span>%</span>`;
+            if(count4 == select_04){
+                clearInterval(countup04);
+            };
         },anim_sec);
 
         reload_btn.classList.add("apear");
