@@ -5,13 +5,13 @@ const reload_btn = document.getElementById("reload-btn");
 
 // 選択肢の中身を定数定義
 const ans1 = "いずみ";
-const ans2 = "谷元";
+const ans2 = "谷本";
 const ans3 = "いずぽん";
 const ans4 = "雪見";
 
 // 選択肢の票数を定義、初期化
 var s1 = 0;	//いずみ 
-var s2 = 0;	//谷元
+var s2 = 0;	//谷本
 var s3 = 0;	//いずぽん
 var s4 = 0;	//雪見
 
