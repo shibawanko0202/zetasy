@@ -89,7 +89,7 @@ let persons = [
   img : "img/i03.jpg",
   proof : false,
   login : last_login[3],
-  introduction : "カフェ巡りが趣味の19歳学生です。<br><br>休日は色々なお店でケーキを食べ歩いたりしています🍰。<br>食べることが好きなので、美味しいそうに何でも食べるような方とお会いしたいです。",
+  introduction : "カフェ巡りが趣味の19歳学生です。<br><br>休日は色々なお店でケーキを食べ歩いたりしています🍰。<br>食べることが好きなので、美味しそうに何でも食べるような方とお会いしたいです。",
   height : "150",
   hobby : hobby_selects[0],
   favorite_type : favorite_type_selects[1],
