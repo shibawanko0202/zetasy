@@ -450,7 +450,7 @@
     height: 100%;
     transform: translateX(-50%);
     background-color: #99999965;
-    z-index: 99;
+    z-index: 999;
     opacity: 1;
     transition: all .3s .6s;
   }
