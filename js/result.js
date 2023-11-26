@@ -18,7 +18,7 @@ var s4 = 0;	//雪見
 var i = 1;
 
 // Googleスプレッドシートから値を取得して値を集計
-const api_url = "https://script.google.com/macros/s/AKfycby-d71hP6_-uZ6n02fAD60bUvNYQBtGe2VQf0jh3B2aokW0FDhcTRMGbq7sqUYoRAophQ/exec";
+const api_url = "https://script.google.com/macros/s/AKfycbzx6b8RGe5KGXc-3iYN7GD0QVIvnpvchEHELdFqWthBYmOV17_-xPqD9L3LOisBbAzOJw/exec";
 fetch(api_url)
 .then(function (fetch_data) {
 	return fetch_data.json();
