@@ -4,21 +4,21 @@ const loading = document.getElementById("result-loading");
 const reload_btn = document.getElementById("reload-btn");
 
 // 選択肢の中身を定数定義
-const ans1 = "いずみ";
-const ans2 = "谷本";
-const ans3 = "いずぽん";
-const ans4 = "雪見";
+const ans1 = "Ａ子";
+const ans2 = "Ｂ美";
+const ans3 = "Ｃ奈";
+const ans4 = "Ｄ葉";
 
 // 選択肢の票数を定義、初期化
-var s1 = 0;	//いずみ 
-var s2 = 0;	//谷本
-var s3 = 0;	//いずぽん
-var s4 = 0;	//雪見
+var s1 = 0;	//Ａ子 
+var s2 = 0;	//Ｂ美
+var s3 = 0;	//Ｃ奈
+var s4 = 0;	//Ｄ葉
 
 var i = 1;
 
 // Googleスプレッドシートから値を取得して値を集計
-const api_url = "https://script.google.com/macros/s/AKfycbzx6b8RGe5KGXc-3iYN7GD0QVIvnpvchEHELdFqWthBYmOV17_-xPqD9L3LOisBbAzOJw/exec";
+const api_url = "https://script.google.com/macros/s/AKfycbwfYjvh-iuJPvnKlQQEz_rrRLuwkHFr6aYQMOdhxc7usAiGbL9LHtZjik8AfMGhbSRH/exec";
 fetch(api_url)
 .then(function (fetch_data) {
 	return fetch_data.json();

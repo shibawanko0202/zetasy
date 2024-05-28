@@ -29,7 +29,7 @@
   html{
     width: 100%;
     height: 100%;
-    /* max-width: 600px; */
+    /* max-width: 400px; */
     background-color: #000000;
     cursor: default;
     user-select: none;
@@ -37,7 +37,7 @@
   body{
     background-color: #fff;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     min-height: 100%;
     margin: 0 auto;
     font-family: 'kiwiMaru-zetasy', serif;
@@ -47,58 +47,6 @@
 
 /* common */
 
-/* 有料コンテンツ */
-
-  .attention{
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 50%;
-    width: 100%;
-    /* max-width: 600px; */
-    height: 100%;
-    transform: translateX(-50%);
-    background-color: #999999aa;
-    z-index: 999;
-    opacity: 1;
-    transition: all .3s;
-  }
-  .attention.hidden{
-    pointer-events: none;
-    opacity: 0;
-  }
-  .attention_box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    min-width: 220px;
-    max-width: 300px;
-    height: 160px;
-    border-radius: 8px;
-    background-color: #fff;
-    color: #333;
-    text-align: center;
-  }
-  .attention_box p{
-    padding: 8px 0 8px;
-  }
-  .attention_box p:nth-child(1){
-    color: var(--zetasy-pink);
-    font-weight: 500;
-    padding: 20px 0 8px;
-    font-size: 18px;
-  }
-  .attention_box button{
-    color: #333;
-    padding-top: 18px;
-  }
-
-/* 有料コンテンツ */
-
-
 /* header */
   header{
     position: fixed;
@@ -106,7 +54,7 @@
     width: 0;
     background-color: #fff;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     z-index: 99;
     box-shadow: 0 3px 3px #0000002d;
   }
@@ -142,13 +90,7 @@
     z-index: 10;
     transition: all .6s;
   }
-  .hamburger-body.apear {
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
-    z-index: 99;
-    background: var(--zetasy-pink-1);
-  }
+
   .hamburger {
     display: flex;
     justify-content: center;
@@ -157,34 +99,11 @@
     font-size: 20px;
     width: 40px;
     height: 32px;
-    margin: 14px 10px;
+    margin: 13px 9px 15px 11px;
     padding-bottom: 2px;
     position: absolute;
     top: 0;
     right: 0;
-  }
-  .hamburger_bar {
-    display: block;
-    width: 100%;
-    height: 4px;
-    position: absolute;
-    left: 0;
-    background: #fff;
-    transition: all .6s;
-  }
-  .hamburger_back{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-color: #00000085;
-    z-index: 4;
-    opacity: 0;
-    pointer-events: none;
-    transition: all .6s;
-  }
-  .hamburger_back.apear{
-    pointer-events: auto;
-    opacity: 1;
   }
 
   .header_menu{
@@ -318,7 +237,7 @@
     font-size: 14px;
     padding-right: 3px;
   }
-  .personlist li:nth-child(3) .thumbnail_info::before{
+  .personlist li:nth-child(4) .thumbnail_info::before{
     color: var(--zetasy-online);
   }
   .thumbnail_oneword{
@@ -342,7 +261,7 @@
     bottom: 0;
     z-index: 10;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     /* height: 40px; */
     padding: 8px 16px;
     background-color: #00000085;
@@ -384,7 +303,7 @@
   .submit-loading{
     position: fixed;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     height: 100%;
     display: flex;
 
@@ -446,7 +365,7 @@
     top: 0;
     left: 50%;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     height: 100%;
     transform: translateX(-50%);
     background-color: #99999965;
@@ -511,15 +430,14 @@
   .prof_body{
     position: relative;
     width: 100%;
-    max-width: 600px;
-
-    /* font-size: 24px; */
+    max-width: 400px;
+    /* height: 1200px; */
   }
   .prof_header{
     position: fixed;
     top: 0;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     height: 50px;
     display: flex;
     justify-content: space-between;
